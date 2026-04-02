@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Image as ImageIcon, Film } from "lucide-react";
+import mediaManifest from "@/data/media-manifest.json";
 
 /* ═══════════════════════════════════════════════════════
    PROJECT DATA MAP
@@ -165,22 +166,9 @@ export default function ProjectPage() {
   const slug = params.slug as string;
   const project = PROJECT_INFO[slug];
 
-  const [media, setMedia] = useState<MediaItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const media: MediaItem[] = (mediaManifest as Record<string, MediaItem[]>)[slug] || [];
   const [filter, setFilter] = useState<"all" | "image" | "video">("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!slug) return;
-    fetch(`/api/projects/${slug}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMedia(data.media || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [slug]);
 
   if (!project) {
     return (
@@ -222,7 +210,7 @@ export default function ProjectPage() {
       </div>
 
       {/* ═══ HEADER ═══ */}
-      <div ref={headerRef} className="relative z-10">
+      <div className="relative z-10">
         {/* Top bar */}
         <motion.div
           initial={{ y: -60, opacity: 0 }}
@@ -324,11 +312,7 @@ export default function ProjectPage() {
       {/* ═══ GALLERY GRID ═══ */}
       <div className="relative z-10 px-6 md:px-12 pb-28">
         <div className="max-w-6xl mx-auto">
-          {loading ? (
-            <div className="flex items-center justify-center py-32">
-              <div className="loader" />
-            </div>
-          ) : filtered.length === 0 ? (
+          {filtered.length === 0 ? (
             <div className="text-center py-32 text-white/20">
               <p className="text-lg">No {filter !== "all" ? filter + "s" : "media"} found</p>
             </div>
@@ -392,7 +376,7 @@ export default function ProjectPage() {
                     {/* Hover expand indicator */}
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 z-20">
                       <span className="text-[9px] tracking-[0.2em] uppercase text-white/50 font-medium truncate max-w-[70%]">
-                        {item.name.replace(/\.[^.]+$/, "").replace(/\(\d+\)/g, "").trim()}
+                        {item.name}
                       </span>
                       <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
                         {item.type === "video" ? (
