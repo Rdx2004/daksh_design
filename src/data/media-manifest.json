@@ -288,7 +288,7 @@
     {
       "name": "4",
       "type": "image",
-      "url": "https://res.cloudinary.com/dkmtl1gvt/image/upload/v1775116698/daksh-portfolio/llc-ten10/4_bdfwyw.jpg"
+      "url": "https://res.cloudinary.com/dkmtl1gvt/image/upload/v1775740832/daksh-portfolio/llc-ten10/llcp2_xwok7d.jpg"
     },
     {
       "name": "5",
@@ -304,6 +304,11 @@
       "name": "7",
       "type": "image",
       "url": "https://res.cloudinary.com/dkmtl1gvt/image/upload/v1775116746/daksh-portfolio/llc-ten10/7_delanx.png"
+    },
+    {
+      "name": "8",
+      "type": "image",
+      "url": "https://res.cloudinary.com/dkmtl1gvt/image/upload/v1775740833/daksh-portfolio/llc-ten10/llcp1_y5byfn.jpg"
     }
   ]
 }

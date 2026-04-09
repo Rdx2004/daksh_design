@@ -62,7 +62,7 @@ const STATS = [
   { value: "3+", label: "Years of\nExperience", icon: Clock },
   { value: "20+", label: "Clients\nServed", icon: Users },
   { value: "100+", label: "Creatives\nDelivered", icon: Briefcase },
-  { value: "5+", label: "Industries\nCovered", icon: Award },
+  { value: "15+", label: "Industries\nCovered", icon: Award },
 ];
 
 const TOOLS = [
@@ -81,7 +81,7 @@ const EXPERIENCE = [
     period: "Oct. 2023 — Dec. 2025",
     role: "Graphic Designer & Video Editor",
     company: "Monkey Minds",
-    desc: "Working as a full-time graphic designer and video editor, specializing in creating visually compelling content for a diverse range of clients.",
+    desc: "Worked as a full-time graphic designer and video editor, specializing in creating visually compelling content for a diverse range of clients.",
   },
   {
     period: "2022 — 2023",
@@ -609,12 +609,12 @@ export default function Home() {
         >
           <div className="h-full w-full relative bg-zinc-950 grid grid-cols-2 md:grid-cols-3 gap-[1px] p-[1px]">
             {[
-              { name: "Tata Motors", tag: "Brand Campaign", img: "/company_logo/tata.png", slug: "tata-motors" },
-              { name: "Macmillan Kids Education", tag: "Visual Design", img: "/company_logo/macmillan.png", slug: "macmillan-kids-education" },
-              { name: "Boyner / Gaitrix Shoes", tag: "Brand Identity", img: "/company_logo/boyner clinic.png", slug: "boyner-gaitrix-shoes" },
-              { name: "Fiery Pot Foods", tag: "Packaging Design", img: "/company_logo/image.png", slug: "fiery-pot-foods" },
-              { name: "Karara Jeera", tag: "Ad Campaign", img: "/company_logo/karara jeera.png", slug: "karara-jeera" },
-              { name: "LLC Ten10", tag: "Creative Design", img: "/company_logo/LLCTEN10.png", slug: "llc-ten10" },
+              { name: "Tata Motors", tag: "Brand Campaign", img: "/new_company_logo/tata.jpeg", slug: "tata-motors" },
+              { name: "Macmillan Kids Education", tag: "Visual Design", img: "/new_company_logo/macmillan education india.jpeg", slug: "macmillan-kids-education" },
+              { name: "Boyner / Gaitrix Shoes", tag: "Brand Identity", img: "/new_company_logo/gaitrix.png", slug: "boyner-gaitrix-shoes" },
+              { name: "Fiery Pot Foods", tag: "Packaging Design", img: "/new_company_logo/fiery pot foods.jpeg", slug: "fiery-pot-foods" },
+              { name: "Karara Jeera", tag: "Ad Campaign", img: "/new_company_logo/karara jeera.png", slug: "karara-jeera" },
+              { name: "LLC Ten10", tag: "Creative Design", img: "/new_company_logo/llc ten10.jpeg", slug: "llc-ten10" },
             ].map((project, i) => (
               <a key={i} href={`/project/${project.slug}`} className="relative group overflow-hidden bg-zinc-900 cursor-pointer flex flex-col items-center justify-center aspect-[3/2] no-underline">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(129,140,248,0.04),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
